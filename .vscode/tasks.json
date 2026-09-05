@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+
+    "tasks": [
+        {
+            "label": "Run current C++ file",
+            "type": "process",
+            "command": "python3",
+            "windows": {
+                "command": "python"
+            },
+            "args": [
+                "${workspaceFolder}/.vscode/run_current_cpp.py",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}
