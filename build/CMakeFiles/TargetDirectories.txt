@@ -1,0 +1,6 @@
+/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/build_CMakeFiles_4.4.3_CompilerIdCXX_CMakeCXXCompilerId.dir
+/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/build_CMakeFiles_4.4.3_CompilerIdCXX_apple-sdk.dir
+/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/run_main.dir
+/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/source_sweep.dir
+/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/edit_cache.dir
+/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/rebuild_cache.dir

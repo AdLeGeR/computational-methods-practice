@@ -1,0 +1,13 @@
+# ninja log v7
+17	920	1788639665521156775	CMakeFiles/src_main.dir/src/main.cpp.o	59627acbd0608fe1
+921	1078	1788639666424995237	src_main	bd98162cb92fb793
+1	124	1788641605297307371	CMakeFiles/MyProject.dir/source/sweep.cpp.o	1c50909989959a15
+124	226	1788641605420754002	libMyProject.a	dcb2e6b79196209a
+1	798	1788641605297628818	CMakeFiles/MyProjectRun.dir/run/main.cpp.o	5d0b1fff05f15c90
+800	979	1788641606096727097	MyProjectRun	b10347be8b5476d9
+43	914	1788709348820752052	CMakeFiles/run_main.dir/run/main.cpp.o	fb62e093a6e93b
+915	1062	1788709349692274501	run_main	a54233e59367d9c1
+4	125	1788641960574790793	CMakeFiles/Project.dir/source/sweep.cpp.o	9e551751fd268b9c
+125	183	1788641960695235505	libProject.a	50d27f379d4541d7
+12	32	1788709348789559944	/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/cmake.verify_globs	951cd432c21e3597
+1	20	1788714981891385701	/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/cmake.verify_globs	951cd432c21e3597
