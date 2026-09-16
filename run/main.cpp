@@ -2,7 +2,6 @@
 #include <chrono>
 #include <cmath>
 #include <sweep.h>
-using namespace std;
 
 int main() {
     int n;

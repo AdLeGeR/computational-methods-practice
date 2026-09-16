@@ -1,4 +1,5 @@
 #include <sweep.h>
+
 std::vector<double> GeneralSweepStrategy::sweep(const TridiagonalSystem& s) const {
     //проверка входных данных
     if (s.n < 1) throw std::invalid_argument("sweep: нужно n >= 1");
