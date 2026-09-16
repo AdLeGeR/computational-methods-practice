@@ -1,24 +1,85 @@
 #include <iostream>
 #include <string>
+#include <vector>
+#include <stdexcept>
+#include <cmath>
+
+struct TridiagonalSystem {
+    std::size_t n = 0;
+    double kp1 = 0.0, mu1 = 0.0;
+    double kp2 = 0.0, mu2 = 0.0;
+    std::vector<double> A, C, B, phi;
+
+    explicit TridiagonalSystem(std::size_t nodes = 0) { resize(nodes); }
+    void resize(std::size_t nodes) {
+        n = nodes;
+        A.assign(n + 1, 0.0);
+        C.assign(n + 1, 0.0);
+        B.assign(n + 1, 0.0);
+        phi.assign(n + 1, 0.0);
+    }
+};
 
 class ISweepStrategy {
 public:
     virtual ~ISweepStrategy() = default;
-    virtual void sweep() const = 0;
+    virtual std::vector<double> sweep(const TridiagonalSystem& system) const = 0;
+protected:
+    double eps = 1e-300;
 };
 
-
-
-class GenertalSweepStrategy : public ISweepStrategy {
+class GeneralSweepStrategy : public ISweepStrategy {
 public:
-    void sweep() const override {
-
-    }
+    std::vector<double> sweep(const TridiagonalSystem& system) const override;
 };
 
 class OptimizedSweepStrategy : public ISweepStrategy {
 public:
-    void sweep() const override {
+    std::vector<double> sweep(const TridiagonalSystem& s) const override {
+        if (s.n < 1) throw std::invalid_argument("sweep: нужно n >= 1");
+        if (s.A.size() <= s.n || s.C.size() <= s.n ||
+            s.B.size() <= s.n || s.phi.size() <= s.n) {
+            throw std::invalid_argument("sweep: размеры A/C/B/phi должны быть >= n+1");
+        }
 
+        const std::size_t n = s.n;
+
+//оптимизация как конст/скаляр
+        const double A = s.A[1];
+        const double B = s.B[1];
+        const double C = s.C[1];
+
+        // ---- прямой ход -----------------------------------------
+        std::vector<double> alpha(n + 1, 0.0);
+        std::vector<double> beta(n + 1, 0.0);
+        alpha[1] = s.kp1;
+        beta[1]  = s.mu1;
+
+        for (std::size_t i = 1; i + 1 <= n; ++i) {
+            const double d = C - A * alpha[i];
+
+            // if (std::abs(d) < eps) {
+            //     std::cout << "sweep: нулевой знаменатель на шаге i = " << i
+            //               << " (C - A*alpha = " << d << ")";
+            //     throw std::runtime_error("0");
+            // }
+
+            alpha[i + 1] = B / d;
+            beta[i + 1]  = (s.phi[i] + A * beta[i]) / d;
+        }
+
+        // ---- обратный ход -------------------------------------------
+        std::vector<double> y(n + 1, 0.0);
+        const double dn = 1.0 - s.kp2 * alpha[n];
+
+        // if (std::abs(dn) < eps) {
+        //     throw std::runtime_error("sweep: нулевой знаменатель в формуле для y[n]");
+        // }
+
+        y[n] = (s.mu2 + s.kp2 * beta[n]) / dn;
+        for (std::size_t i = n; i-- > 0;) {
+            y[i] = alpha[i + 1] * y[i + 1] + beta[i + 1];
+        }
+        return y;
     }
 };

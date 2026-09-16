@@ -1,8 +1,9 @@
 {
+	"archive" : {},
 	"artifacts" : 
 	[
 		{
-			"path" : "build_CMakeFiles_4.4.3_CompilerIdCXX_CMakeCXXCompilerId"
+			"path" : "libsweep_lib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -10,7 +11,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_library",
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -24,7 +26,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 44,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 12,
 				"parent" : 0
 			}
 		]
@@ -40,7 +48,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=c++20 -arch arm64"
+					"fragment" : "-g -std=gnu++20 -arch arm64"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/Users/kristina/Documents/test_proga_VM/include"
 				}
 			],
 			"language" : "CXX",
@@ -58,24 +73,9 @@
 			]
 		}
 	],
-	"id" : "build_CMakeFiles_4.4.3_CompilerIdCXX_CMakeCXXCompilerId::@6890427a1f51a3e7e1df",
-	"link" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "-g",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "-Wl,-search_paths_first -Wl,-headerpad_max_install_names",
-				"role" : "flags"
-			}
-		],
-		"language" : "CXX"
-	},
-	"name" : "build_CMakeFiles_4.4.3_CompilerIdCXX_CMakeCXXCompilerId",
-	"nameOnDisk" : "build_CMakeFiles_4.4.3_CompilerIdCXX_CMakeCXXCompilerId",
+	"id" : "sweep_lib::@6890427a1f51a3e7e1df",
+	"name" : "sweep_lib",
+	"nameOnDisk" : "libsweep_lib.a",
 	"paths" : 
 	{
 		"build" : ".",
@@ -84,10 +84,17 @@
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Source Files\\build\\CMakeFiles\\4.4.3\\CompilerIdCXX",
+			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
 				0
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
 			]
 		}
 	],
@@ -100,9 +107,18 @@
 				1
 			],
 			"compileGroupIndex" : 0,
-			"path" : "build/CMakeFiles/4.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp",
+			"path" : "source/sweep.cpp",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"backtraces" : 
+			[
+				1
+			],
+			"path" : "include/sweep.h",
+			"sourceGroupIndex" : 1
 		}
 	],
-	"type" : "EXECUTABLE"
+	"type" : "STATIC_LIBRARY"
 }

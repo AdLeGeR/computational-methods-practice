@@ -1,18 +1,4 @@
 {
-	"globsDependent" : 
-	[
-		{
-			"expression" : "/Users/kristina/Documents/test_proga_VM/*.cpp",
-			"paths" : 
-			[
-				"/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/4.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp",
-				"/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/4.4.3/CompilerIdCXX/apple-sdk.cpp",
-				"/Users/kristina/Documents/test_proga_VM/run/main.cpp",
-				"/Users/kristina/Documents/test_proga_VM/source/sweep.cpp"
-			],
-			"recurse" : true
-		}
-	],
 	"inputs" : 
 	[
 		{

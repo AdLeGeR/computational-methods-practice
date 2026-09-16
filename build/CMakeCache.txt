@@ -156,7 +156,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=CppTasks
+CMAKE_PROJECT_NAME:STATIC=test_proga_VM
 
 //Value Computed by CMake
 CMAKE_PROJECT_SPDX_LICENSE:STATIC=
@@ -261,6 +261,15 @@ TestProject_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 TestProject_SOURCE_DIR:STATIC=/Users/kristina/Documents/test_proga_VM
+
+//Value Computed by CMake
+test_proga_VM_BINARY_DIR:STATIC=/Users/kristina/Documents/test_proga_VM/build
+
+//Value Computed by CMake
+test_proga_VM_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+test_proga_VM_SOURCE_DIR:STATIC=/Users/kristina/Documents/test_proga_VM
 
 
 ########################

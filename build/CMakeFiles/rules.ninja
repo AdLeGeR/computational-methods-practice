@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: CppTasks
+# Project: test_proga_VM
 # Configurations: Debug
 # =============================================================================
 # =============================================================================
@@ -14,7 +14,7 @@
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__build_CMakeFiles_4.2e4.2e3_CompilerIdCXX_CMakeCXXCompilerId_unscanned_Debug
+rule CXX_COMPILER__sweep_lib_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/usr/bin/clang++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -22,30 +22,11 @@ rule CXX_COMPILER__build_CMakeFiles_4.2e4.2e3_CompilerIdCXX_CMakeCXXCompilerId_u
 
 
 #############################################
-# Rule for linking CXX executable.
+# Rule for linking CXX static library.
 
-rule CXX_EXECUTABLE_LINKER__build_CMakeFiles_4.2e4.2e3_CompilerIdCXX_CMakeCXXCompilerId_Debug
-  command = $PRE_LINK && /usr/bin/clang++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
-  description = Linking CXX executable $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__build_CMakeFiles_4.2e4.2e3_CompilerIdCXX_apple-sdk_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/clang++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for linking CXX executable.
-
-rule CXX_EXECUTABLE_LINKER__build_CMakeFiles_4.2e4.2e3_CompilerIdCXX_apple-sdk_Debug
-  command = $PRE_LINK && /usr/bin/clang++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
-  description = Linking CXX executable $TARGET_FILE
+rule CXX_STATIC_LIBRARY_LINKER__sweep_lib_Debug
+  command = $PRE_LINK && /opt/homebrew/bin/cmake -E rm -f $TARGET_FILE && /usr/bin/ar qc $TARGET_FILE $LINK_FLAGS $in && /usr/bin/ranlib $TARGET_FILE && /opt/homebrew/bin/cmake -E touch $TARGET_FILE && $POST_BUILD
+  description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
 
 
@@ -69,25 +50,6 @@ rule CXX_EXECUTABLE_LINKER__run_main_Debug
 
 
 #############################################
-# Rule for compiling CXX files.
-
-rule CXX_COMPILER__source_sweep_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}/usr/bin/clang++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
-  description = Building CXX object $out
-
-
-#############################################
-# Rule for linking CXX executable.
-
-rule CXX_EXECUTABLE_LINKER__source_sweep_Debug
-  command = $PRE_LINK && /usr/bin/clang++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
-  description = Linking CXX executable $TARGET_FILE
-  restat = $RESTAT
-
-
-#############################################
 # Rule for running custom commands.
 
 rule CUSTOM_COMMAND
@@ -101,15 +63,6 @@ rule CUSTOM_COMMAND
 rule RERUN_CMAKE
   command = /opt/homebrew/bin/cmake --regenerate-during-build -S/Users/kristina/Documents/test_proga_VM -B/Users/kristina/Documents/test_proga_VM/build
   description = Re-running CMake...
-  generator = 1
-
-
-#############################################
-# Rule for re-checking globbed directories.
-
-rule VERIFY_GLOBS
-  command = /opt/homebrew/bin/cmake -P /Users/kristina/Documents/test_proga_VM/build/CMakeFiles/VerifyGlobs.cmake
-  description = Re-checking globbed directories...
   generator = 1
 
 

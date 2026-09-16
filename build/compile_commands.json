@@ -1,26 +1,14 @@
 [
 {
   "directory": "/Users/kristina/Documents/test_proga_VM/build",
-  "command": "/usr/bin/clang++ -g -std=c++20 -arch arm64 -o CMakeFiles/build_CMakeFiles_4.4.3_CompilerIdCXX_CMakeCXXCompilerId.dir/CMakeFiles/4.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o -c /Users/kristina/Documents/test_proga_VM/build/CMakeFiles/4.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp",
-  "file": "/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/4.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp",
-  "output": "/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/build_CMakeFiles_4.4.3_CompilerIdCXX_CMakeCXXCompilerId.dir/CMakeFiles/4.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp.o"
+  "command": "/usr/bin/clang++ -I/Users/kristina/Documents/test_proga_VM/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/sweep_lib.dir/source/sweep.cpp.o -c /Users/kristina/Documents/test_proga_VM/source/sweep.cpp",
+  "file": "/Users/kristina/Documents/test_proga_VM/source/sweep.cpp",
+  "output": "/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/sweep_lib.dir/source/sweep.cpp.o"
 },
 {
   "directory": "/Users/kristina/Documents/test_proga_VM/build",
-  "command": "/usr/bin/clang++ -g -std=c++20 -arch arm64 -o CMakeFiles/build_CMakeFiles_4.4.3_CompilerIdCXX_apple-sdk.dir/CMakeFiles/4.4.3/CompilerIdCXX/apple-sdk.cpp.o -c /Users/kristina/Documents/test_proga_VM/build/CMakeFiles/4.4.3/CompilerIdCXX/apple-sdk.cpp",
-  "file": "/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/4.4.3/CompilerIdCXX/apple-sdk.cpp",
-  "output": "/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/build_CMakeFiles_4.4.3_CompilerIdCXX_apple-sdk.dir/CMakeFiles/4.4.3/CompilerIdCXX/apple-sdk.cpp.o"
-},
-{
-  "directory": "/Users/kristina/Documents/test_proga_VM/build",
-  "command": "/usr/bin/clang++ -g -std=c++20 -arch arm64 -o CMakeFiles/run_main.dir/run/main.cpp.o -c /Users/kristina/Documents/test_proga_VM/run/main.cpp",
+  "command": "/usr/bin/clang++ -I/Users/kristina/Documents/test_proga_VM/include -g -std=gnu++20 -arch arm64 -o CMakeFiles/run_main.dir/run/main.cpp.o -c /Users/kristina/Documents/test_proga_VM/run/main.cpp",
   "file": "/Users/kristina/Documents/test_proga_VM/run/main.cpp",
   "output": "/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/run_main.dir/run/main.cpp.o"
-},
-{
-  "directory": "/Users/kristina/Documents/test_proga_VM/build",
-  "command": "/usr/bin/clang++ -g -std=c++20 -arch arm64 -o CMakeFiles/source_sweep.dir/source/sweep.cpp.o -c /Users/kristina/Documents/test_proga_VM/source/sweep.cpp",
-  "file": "/Users/kristina/Documents/test_proga_VM/source/sweep.cpp",
-  "output": "/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/source_sweep.dir/source/sweep.cpp.o"
 }
 ]

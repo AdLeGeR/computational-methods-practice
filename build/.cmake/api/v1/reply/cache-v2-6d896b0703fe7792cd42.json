@@ -883,7 +883,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "CppTasks"
+			"value" : "test_proga_VM"
 		},
 		{
 			"name" : "CMAKE_PROJECT_SPDX_LICENSE",
@@ -1339,6 +1339,42 @@
 		},
 		{
 			"name" : "TestProject_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/kristina/Documents/test_proga_VM"
+		},
+		{
+			"name" : "test_proga_VM_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "/Users/kristina/Documents/test_proga_VM/build"
+		},
+		{
+			"name" : "test_proga_VM_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "test_proga_VM_SOURCE_DIR",
 			"properties" : 
 			[
 				{

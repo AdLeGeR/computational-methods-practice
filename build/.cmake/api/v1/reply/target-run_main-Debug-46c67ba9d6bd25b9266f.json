@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "build_CMakeFiles_4.4.3_CompilerIdCXX_apple-sdk"
+			"path" : "run_main"
 		}
 	],
 	"backtrace" : 1,
@@ -10,7 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"target_link_libraries"
 		],
 		"files" : 
 		[
@@ -24,7 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 44,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 18,
 				"parent" : 0
 			}
 		]
@@ -34,13 +41,27 @@
 		"major" : 2,
 		"minor" : 11
 	},
+	"compileDependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "sweep_lib::@6890427a1f51a3e7e1df"
+		}
+	],
 	"compileGroups" : 
 	[
 		{
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=c++20 -arch arm64"
+					"fragment" : "-g -std=gnu++20 -arch arm64"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/Users/kristina/Documents/test_proga_VM/include"
 				}
 			],
 			"language" : "CXX",
@@ -58,7 +79,14 @@
 			]
 		}
 	],
-	"id" : "build_CMakeFiles_4.4.3_CompilerIdCXX_apple-sdk::@6890427a1f51a3e7e1df",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "sweep_lib::@6890427a1f51a3e7e1df"
+		}
+	],
+	"id" : "run_main::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -70,12 +98,24 @@
 			{
 				"fragment" : "-Wl,-search_paths_first -Wl,-headerpad_max_install_names",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "libsweep_lib.a",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "build_CMakeFiles_4.4.3_CompilerIdCXX_apple-sdk",
-	"nameOnDisk" : "build_CMakeFiles_4.4.3_CompilerIdCXX_apple-sdk",
+	"linkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "sweep_lib::@6890427a1f51a3e7e1df"
+		}
+	],
+	"name" : "run_main",
+	"nameOnDisk" : "run_main",
 	"paths" : 
 	{
 		"build" : ".",
@@ -84,7 +124,7 @@
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Source Files\\build\\CMakeFiles\\4.4.3\\CompilerIdCXX",
+			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
 				0
@@ -100,7 +140,7 @@
 				1
 			],
 			"compileGroupIndex" : 0,
-			"path" : "build/CMakeFiles/4.4.3/CompilerIdCXX/apple-sdk.cpp",
+			"path" : "run/main.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
