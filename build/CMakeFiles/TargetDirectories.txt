@@ -1,4 +1,0 @@
-/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/sweep_lib.dir
-/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/run_main.dir
-/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/edit_cache.dir
-/Users/kristina/Documents/test_proga_VM/build/CMakeFiles/rebuild_cache.dir
