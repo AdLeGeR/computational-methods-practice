@@ -1,0 +1,14 @@
+# CMake
+build/
+cmake-build-*/
+out/
+
+# Visual Studio
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+
+# VS Code
+.vscode/*.log
