@@ -7,14 +7,17 @@
 
 struct TridiagonalSystem {
     std::size_t n = 0;
-
+    
+    // kp - это каппа из лекции
     double kp1 = 0.0, mu1 = 0.0;
     double kp2 = 0.0, mu2 = 0.0;
 
     std::vector<double> A, C, B, phi;
-
+    
+    // конструктор 
     explicit TridiagonalSystem(std::size_t nodes = 0) { resize(nodes); }
 
+    // инициализация | переопределение структуры
     void resize(std::size_t nodes) {
         n = nodes;
         A.assign(n + 1, 0.0);
