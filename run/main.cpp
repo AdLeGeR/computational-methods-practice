@@ -1,52 +1,55 @@
+#include <exception>
 #include <iostream>
-#include <sweep.h>
+#include <vector>
+#include "sweep.h"
+#include "sweep_runner.h"
 
-using namespace std;
-int main(){
+static double exactSolution(double x) {
+    return 10.0 + 90.0 * x * x;
+}
 
+static TridiagonalSystem makeSystem(int n) {
+    const double h = 1.0 / n;
+    const double k = 12.0 / (h * h);
+
+    TridiagonalSystem s(n);
+    for (int i = 1; i < n; ++i) {
+        double xi = i * h;
+        s.A[i] = k;
+        s.B[i] = k;
+        s.C[i] = 2.0 * k + 5.0;
+        s.phi[i] = -2110.0 + 450.0 * xi * xi;
+    }
+    s.mu1 = 10.0;
+    s.mu2 = 100.0;
+    return s;
+}
+
+int main() {
     int n;
-    std::cout << "еnter n: ";
-    std::cin >> n;
-
-    if (n < 2) {
-        std::cout << "n < 2" << std::endl;
+    std::cout << "enter n: ";
+    if (!(std::cin >> n) || n < 2) {
+        std::cerr << "n must be an integer >= 2\n";
         return 1;
     }
 
-    TridiagonalSystem s(n);
-    double h = 1.0 / static_cast<double>(n);
+    TridiagonalSystem system = makeSystem(n);
 
-    for (int i = 1; i <= n - 1; i++) {
-        s.A[i] = 12.0 / (h * h);
-        s.C[i] = 24.0 / (h * h) + 5.0;
-        s.B[i] = 12.0 / (h * h);
+    GeneralSweepStrategy general;
+    OptimizedSweepStrategy optimized;
+    const ISweepStrategy* strategies[] = { &general, &optimized };
 
-        double xi = static_cast<double>(i) * h;
-        s.phi[i] = -2110.0 + 450.0 * xi * xi;
-    }
-    s.kp1 = 0.0; s.mu1 = 10;
-    s.kp2 = 0.0; s.mu2 = 100;
-
-    auto v = GenetalSweepStrategy().sweep(s);
-
-    double max = 0.0;
-
-    std::cout << "i\txi\tvti\tvi\tvti-vi" << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
-
-    for (int i = 0; i <= n; i++) {
-        double xi = i * h;
-        double vti = 10.0 + 90.0 * xi * xi;
-        double maxr = std::abs(vti - v[i]);
-
-        if (maxr > max) {
-            max = maxr;
+    try {
+        std::vector<SweepResult> results;
+        for (const ISweepStrategy* strategy : strategies) {
+            results.push_back(runSweep(*strategy, system, exactSolution));
+            printTable(results.back(), exactSolution);
         }
-
-        std::cout << i << "\t" << xi << "\t" << vti << "\t" << v[i] << "\t" << vti - v[i] << std::endl;
+        printSummary(results);
     }
-    std::cout << "---------------------------------------------" << std::endl;
-    std::cout << "max|vti-vi|: " << max << std::endl;
-
+    catch (const std::exception& e) {
+        std::cerr << "error: " << e.what() << '\n';
+        return 1;
+    }
     return 0;
 }
