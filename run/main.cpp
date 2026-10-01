@@ -25,6 +25,26 @@ static TridiagonalSystem makeSystem(int n) {
     return s;
 }
 
+static TridiagonalSystem makeOptimizedSystem(int n) {
+    const double h = 1.0 / n;
+    const double k = 12.0 / (h * h);
+
+    TridiagonalSystem s(2);
+
+    s.A[1] = k;
+    s.B[1] = k;
+    s.C[1] = 2.0 * k + 5.0;
+    s.n = n;
+    s.phi.assign(n + 1, 0);
+    for (int i = 1; i < n; ++i) {
+        double xi = i * h;
+        s.phi[i] = -2110.0 + 450.0 * xi * xi;
+    }
+    s.mu1 = 10.0;
+    s.mu2 = 100.0;
+    return s;
+}
+
 int main() {
     int n;
     std::cout << "enter n: ";
@@ -34,6 +54,8 @@ int main() {
     }
 
     TridiagonalSystem system = makeSystem(n);
+    TridiagonalSystem osystem = makeOptimizedSystem(n);
+
 
     GeneralSweepStrategy general;
     OptimizedSweepStrategy optimized;
@@ -42,8 +64,16 @@ int main() {
     try {
         std::vector<SweepResult> results;
         for (const ISweepStrategy* strategy : strategies) {
-            results.push_back(runSweep(*strategy, system, exactSolution));
-            printTable(results.back(), exactSolution);
+            TridiagonalSystem tsystem;
+//            if (strategy->name() == "optimized") tsystem = makeOptimizedSystem(n);
+//            else tsystem = makeSystem(n);
+//            results.push_back(runSweep(*strategy, tsystem, exactSolution));
+//            printTable(results.back(), exactSolution);
+            for(int n = 10; n < 100000000; n *= 10){
+                if (strategy->name() == "optimized") tsystem = makeOptimizedSystem(n);
+                else tsystem = makeSystem(n);
+                results.push_back(runSweep(*strategy, tsystem, exactSolution));
+            }
         }
         printSummary(results);
     }

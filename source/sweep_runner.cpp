@@ -8,7 +8,7 @@ SweepResult runSweep(const ISweepStrategy& strategy, const TridiagonalSystem& s,
     r.name = strategy.name();
 
     auto start = std::chrono::steady_clock::now();
-    r.v = strategy.sweep(s);
+    r.v = std::move(strategy.sweep(s));
     auto end = std::chrono::steady_clock::now();
     r.timeUs = std::chrono::duration<double, std::micro>(end - start).count();
 
@@ -24,13 +24,13 @@ void printTable(const SweepResult& r, ExactFn exact) {
     const double h = 1.0 / (r.v.size() - 1);
 
     std::cout << "\n--- " << r.name << " sweep ---\n"
-        << "i\txi\tvti\tvi\tvti-vi\n"
+        << "i\txi\tvti\tvi\tvti-vi\tri\n"
         << "---------------------------------------------\n";
     for (std::size_t i = 0; i < r.v.size(); ++i) {
         double xi = i * h;
         double vti = exact(xi);
         std::cout << i << '\t' << xi << '\t' << vti << '\t' << r.v[i]
-            << '\t' << vti - r.v[i] << '\n';
+            << '\t' << vti - r.v[i] << '\t' << r.v[i] - exact(xi) << '\n';
     }
     std::cout << "---------------------------------------------\n"
         << "max|vti-vi|: " << r.maxError << '\n';

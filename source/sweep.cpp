@@ -47,10 +47,10 @@ std::vector<double> GeneralSweepStrategy::sweep(const TridiagonalSystem& s) cons
 
 std::vector<double> OptimizedSweepStrategy::sweep(const TridiagonalSystem& s) const {
     if (s.n < 1) throw std::invalid_argument("sweep: нужно n >= 1");
-    if (s.A.size() <= s.n || s.C.size() <= s.n ||
-        s.B.size() <= s.n || s.phi.size() <= s.n) {
-        throw std::invalid_argument("sweep: размеры A/C/B/phi должны быть >= n+1");
-    }
+//    if (s.A.size() <= s.n || s.C.size() <= s.n ||
+//        s.B.size() <= s.n || s.phi.size() <= s.n) {
+//        throw std::invalid_argument("sweep: размеры A/C/B/phi должны быть >= n+1");
+//    }
 
     const std::size_t n = s.n;
 
