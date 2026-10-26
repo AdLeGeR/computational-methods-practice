@@ -12,3 +12,7 @@ out/
 
 # VS Code
 .vscode/*.log
+
+# результаты лабы 2 (CppTasksSpline, tools/plot_spline.py)
+spline_*.csv
+spline_*.png
